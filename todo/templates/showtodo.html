@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <title>俺が考えた最強のToDOリスト</title>
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='styles.css')}}" />
+</head>
+
+<body>
+  <h1>ToDo List</h1>
+  {% if not todolist %}
+    <p>さあ、ToDoを登録しましょう。</p>
+  {% else %}
+    <p>【登録中のToDo】</p>
+  {% endif %}
+  <ul>
+    {% for item in todolist %}
+    <li {% if item.done %}style="color: lightgray"{% endif %}>
+      {{ item.title }}
+      <a href="/updatedone/{{ item.item_id }}">[done!]</a>
+      <a href="/deleteitem/{{ item.item_id }}">[delete]</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <form action="/additem" method="post" name="myform">
+    <p>
+      <input type="text" name="title">
+    </p>
+    <a href="javascript:document.myform.submit()" class="button">submit</a>
+    <a href="/deletealldoneitems" class="button">delete all done items</a>
+  </form>
+</body>
+
+</html>

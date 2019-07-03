@@ -1,0 +1,34 @@
+<!DOCTYPE html> <!--htmlを書くときのおまじない。必要-->
+<html lang="ja"> <!--htmlの言語を指定。enで英語-->
+<head> <!--head部分を定義。-->
+    <meta charset="UTF-8"> <!--エンコードをUTF-8に指定-->
+    <link rel="stylesheet" href="/static/style.css">
+    <title> ToDoのアプリケーション</title> <!--ブラウザ上タブで表示される文字を定義-->
+</head> <!--headの終了部分-->
+<body> <!--bodyを定義-->
+    <h1 style="font-size:30pt">Todo</h1> <!--<h1>タグで最大の大きさで文字列を表示-->
+    <div class="text-center">Add a new todo item: <!--divタグは囲ったところをブロック要素としてまとめて扱うことができる-->
+        <!--actionは必ず指定する必要がある。CGIプログラムのURIを指定する必要がある.
+            フォームの送信ボタンを押して送信されるデータの送信先を指定する、メソッドはPOSTを指定する-->
+        <form action="{{ url_for('add') }}" method="POST"> 
+            <input type="text" name="todoitem"> <!---->
+            <input type="submit", value="Add Item">
+            <a href="#" class="btn-sticky"><input type="submit">BUTTON</a>
+        </form>
+    </div>
+    <br>
+    <br>
+    <div><h1 style="font-size:30pt">  Imcomplete Items</h1>
+        <ul>
+            {% for todo in incomplete %}
+            <li style="font-size:14pt">{{ todo.text }} <a href="{{ url_for('complete', id=todo.id)}}">  Mark As Complete!!</a></li>
+            {% endfor %}
+        </ul>
+        <h2 style="font-size:30pt">Complete Items</h2>
+        </ul>
+            {% for todo in complete %}
+            <li>{{ todo.text }}</li>
+            {% endfor %}
+    </div>
+</body>
+</html>
