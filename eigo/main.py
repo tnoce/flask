@@ -44,11 +44,12 @@ def main_page():
 
     if request.method == 'POST':
         text = request.form['text']
-        total = count_word
-        total(text)
+        total = count_word(text)
         return render_template("index.html", text=text, total=total)
 
     return render_template("index.html", message=message, total=total)
+
+    
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=8888)
