@@ -44,7 +44,6 @@ def main_page():
 
     if request.method == 'POST':
         text = request.form['text']
-        #print(text) # 出力確認用
         total = count_word
         total(text)
         return render_template("index.html", text=text, total=total)
