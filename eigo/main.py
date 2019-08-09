@@ -34,17 +34,19 @@ def count_word(text):
     s = pd.Series(dic)
     
     for k, v in sorted(s.items(), key=lambda x: -x[1]):
-        print(str(k) + "：" + str(v))    
+        print(str(k) + "：" + str(v))  
 
 
 @app.route("/", methods=["GET","POST"])
 def main_page():
-    message = 'sample_string'
+    message = 'This is a sample message'
     total = ''
 
     if request.method == 'POST':
         text = request.form['text']
-        total = count_word(text)
+        #print(text) # 出力確認用
+        total = count_word
+        total(text)
         return render_template("index.html", text=text, total=total)
 
     return render_template("index.html", message=message, total=total)
