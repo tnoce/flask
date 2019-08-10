@@ -4,8 +4,8 @@ import sqlite3
 
 app = Flask(__name__)
 
-conn = sqlite3.connect('database.sqlite')
-c = conn.cursor()
+#conn = sqlite3.connect('database.sqlite')
+#c = conn.cursor()
 
 def count_word(text):
     txts = text
@@ -32,14 +32,16 @@ def count_word(text):
             dic[word] += 1
     
     s = pd.Series(dic)
-    
-    for k, v in sorted(s.items(), key=lambda x: -x[1]):
-        print(str(k) + "：" + str(v))  
+    df = pd.DataFrame(s)
+    return df
+
+    #for k, v in sorted(s.items(), key=lambda x: -x[1]):
+        #print(str(k) + "：" + str(v))
 
 
 @app.route("/", methods=["GET","POST"])
 def main_page():
-    message = 'This is a sample message'
+    message = ' This is a sample message '
     total = ''
 
     if request.method == 'POST':
