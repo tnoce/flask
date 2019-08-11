@@ -15,13 +15,13 @@ def count_word(text):
     dic = {}
     
     for x in txts:
-        if x != " " and x != "\n":
+        if x != " ":
             tmp += x
         else:
             chikan = tmp.replace('\n', '').replace('(', '').\
             replace(')', '').replace('[', '').replace(']', '').\
             replace('.', '').replace(',', '').replace(':', '').\
-            replace('-', '').replace('?','').replace('!','').replace('¥','')
+            replace('-', '').replace('?','').replace('!','')
             
             result.append(chikan.lower())
             tmp = ""
@@ -33,9 +33,8 @@ def count_word(text):
             dic[word] += 1
     
     s = pd.Series(dic)
-    df = pd.DataFrame(s, columns=['単語数'])
-    dfs = df.sort_values(by='単語数', ascending=False)
-
+    df = pd.DataFrame(s, columns=['A'])
+    dfs = df.sort_values(by='A', ascending=False) 
     return dfs
 
 
