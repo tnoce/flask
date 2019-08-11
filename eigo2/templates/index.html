@@ -6,6 +6,9 @@
         <title>英文分割</title>  
     </head>
     <body>
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
         <h1>英文分割</h1>
         <p>以下フォームに英文を貼り付けてください</p>
         <form action="/" method="POST">
@@ -16,18 +19,17 @@
                 <input type="text"><br><br>
                 <label for="name">英文</lable><br>
                 <textarea rows="10" cols="40" name="text">{{ text }}</textarea><br>
-                <input type="submit" value="SUBMIT" class="button"></input><br><br>
+                <input type="submit" value="SUBMIT"></input>
                 <input type="reset" value="リセット"></input>
             </div>
         </form>
         <br><br>
-        <span><font size="5"><strong>あなたの入力した英文</strong></font></span><br><br>
+        <span><font size="5"><strong>↓↓あなたの入力した英文</strong></font></span><br><br>
         <font size="2">{{ text }} </font>
         <br><br>
-        <span><font size="5"><strong>結果</strong></font></span><br><br>
+        <span><font size="5"><strong>↓↓結果</strong></font></span><br><br>
         <table align="center">
             <tr align="center"><font size="2">{{ total|safe }}</font></tr>
         </table>
-        <!--<script src="/static/js/main.js"></script>-->
     </body>
 </html>
