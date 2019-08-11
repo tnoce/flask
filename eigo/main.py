@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session, request
 import pandas as pd
+import numpy as np
 import sqlite3
 
 app = Flask(__name__)
@@ -14,13 +15,13 @@ def count_word(text):
     dic = {}
     
     for x in txts:
-        if x != " ":
+        if x != " " and x != "\n":
             tmp += x
         else:
             chikan = tmp.replace('\n', '').replace('(', '').\
             replace(')', '').replace('[', '').replace(']', '').\
             replace('.', '').replace(',', '').replace(':', '').\
-            replace('-', '').replace('?','').replace('!','')
+            replace('-', '').replace('?','').replace('!','').replace('¥','')
             
             result.append(chikan.lower())
             tmp = ""
@@ -32,27 +33,23 @@ def count_word(text):
             dic[word] += 1
     
     s = pd.Series(dic)
-    df = pd.DataFrame(s)
-    return df
+    df = pd.DataFrame(s, columns=['単語数'])
+    dfs = df.sort_values(by='単語数', ascending=False)
 
-    #for k, v in sorted(s.items(), key=lambda x: -x[1]):
-        #print(str(k) + "：" + str(v))
+    return dfs
 
 
 @app.route("/", methods=["GET","POST"])
 def main_page():
-    message = ' This is a sample message '
     total = ''
 
     if request.method == 'POST':
         text = request.form['text']
         total = count_word(text)
-        return render_template("index.html", text=text, total=total)
-
-    return render_template("index.html", message=message, total=total)
+        return render_template("index.html", text=text, total=total.to_html())
+    
+    return render_template("index.html", total=total)
 
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=8877)
-
-
 

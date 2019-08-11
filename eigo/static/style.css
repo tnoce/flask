@@ -1,10 +1,10 @@
 body {
-    text-align: center;
+    text-align: left;
     padding: 20px;
   }
   
   .form1 {
-    background-color: #FFF;
+    background-color: white;
   }
   
   .button {
@@ -23,4 +23,8 @@ body {
   .button:active {
     border-bottom: solid 2px #fd9535;
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+  }
+
+  .table {
+    text-align: right;
   }

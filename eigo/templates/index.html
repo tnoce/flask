@@ -25,9 +25,11 @@
         </form>
         <br><br>
         <span><font size="5"><strong>↓↓あなたの入力した英文</strong></font></span><br><br>
-    <font size="2">{{ text }} </font>
-    <br><br>
-    <span><font size="5"><strong>↓↓結果</strong></font></span><br><br>
-    <h1>{{ total }}</h1>
+        <font size="2">{{ text }} </font>
+        <br><br>
+        <span><font size="5"><strong>↓↓結果</strong></font></span><br><br>
+        <table>
+            <tr><font size="2">{{ total|safe }}</font></tr>
+        </table>
     </body>
 </html>
