@@ -3,31 +3,34 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/style.css">
-        <title>英文分割</title>  
+        <title>Split English sentences</title>  
     </head>
     <body>
-        <h1>英文分割</h1>
-        <p>以下フォームに英文を貼り付けてください</p>
+        <div class="body2">
+        <h1>Split English Sentences</h1>
+        <p>Please input your sentence below</p>
         <form action="/" method="POST">
             <div class="form1">
-                <label for="name">日付</label><br>
-                <input type="date"></input><br><br>
-                <label for="name">利用者名</label><br>
-                <input type="text"><br><br>
-                <label for="name">英文</lable><br>
-                <textarea rows="10" cols="40" name="text">{{ text }}</textarea><br>
-                <input type="submit" value="SUBMIT" class="button"></input><br><br>
-                <input type="reset" value="リセット"></input>
+                <label for="name">DATE</label><br>
+                <input type="date" size="40"></input><br><br>
+                <label for="name">USER_NAME</label><br>
+                <input type="text" size="70"><br><br>
+                <label for="name">SENTENCE</lable><br>
+                <textarea rows="20" cols="70" name="text" text-size:20px>{{ text }}</textarea><br><br>
+                <input type="submit" value="SUBMIT" class="sub_button"></input>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="reset" value="RESET" class="reset_button"></input>
             </div>
         </form>
         <br><br>
-        <span><font size="4"><strong>あなたの入力した英文</strong></font></span><br><br>
-        <font size="3">{{ text }} </font>
+        <div class="result">
+        <span><font size="4"><strong>The English sentence you've input</strong></font></span><br><br>
+        <font>{{ text }} </font>
+        </div>
         <br><br>
         <span><font size="4"><strong>結果</strong></font></span><br><br>
-        <table align="center">
-            <tr align="center"><font size="2">{{ total | safe }}</font></tr>
-        </table>
+        <tr text-align="center">{{ total | safe }}</tr>
         <!--<script src="/static/js/main.js"></script>-->
+        </div>
     </body>
 </html>

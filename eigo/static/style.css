@@ -1,34 +1,93 @@
 @charset 'utf-8';
 
-  body {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .form1 {
-    background-color: white;
-  }
-  
-  .button {
-    display       : inline-block;
-    border-radius : 5%;          /* 角丸       */
-    font-size     : 18pt;        /* 文字サイズ */
-    text-align    : center;      /* 文字位置   */
-    cursor        : pointer;     /* カーソル   */
-    padding       : 12px 12px;   /* 余白       */
-    background    : #999999;     /* 背景色     */
-    color         : #ffffff;     /* 文字色     */
-    line-height   : 1em;         /* 1行の高さ  */
-    transition    : .3s;         /* なめらか変化 */
-    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
-    border        : 2px solid #999999;    /* 枠の指定 */
-  }
-  .button:hover {
-    box-shadow    : none;        /* カーソル時の影消去 */
-    color         : #999999;     /* 背景色     */
-    background    : #ffffff;     /* 文字色     */
-  }
+html {
+  background: #d1cdcd;
+}
 
-  .table {
-    text-align: right;
-  }
+body {
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+}
+
+.body2 {
+  background-color: white;
+  padding: 20px;
+}
+
+.result {
+  background: #eeeeee;
+  width         : 50%;
+  display       : inline-block;
+  border-radius : 10%;
+  font-size     : 10pt;
+  text-align    : center;
+  padding       : 20px;
+}
+  
+.sub_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 16pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #999999;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+  
+.sub_button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.reset_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 16pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #999999;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+
+.reset_button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 10;
+  width: 50%;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px 0;
+}
+
