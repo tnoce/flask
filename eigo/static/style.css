@@ -1,7 +1,28 @@
 @charset 'utf-8';
 
-html {
-  background: #d1cdcd;
+h1 {
+  position: relative;
+  padding: 0.5em;
+  background: #a6d3c8;
+  color: white;
+}
+
+h1::before {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 0;
+  border: none;
+  border-bottom: solid 15px transparent;
+  border-right: solid 20px rgb(149, 158, 155);
+}
+
+h4 {
+  color: #010079;
+  text-shadow: 0 0 5px white;
+  border-left: solid 7px #010079;
+  background: -webkit-repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
+  background: repeating-linear-gradient(-45deg, #cce7ff, #cce7ff 3px,#e9f4ff 3px, #e9f4ff 7px);
 }
 
 body {
@@ -13,6 +34,16 @@ body {
 .body2 {
   background-color: white;
   padding: 20px;
+}
+
+textarea {
+  resize: none;
+  width: 70em;
+  size: 20px;
+  height: 20em;
+  row-gap: 20px;
+  box-shadow: 0 0 7px #8e9091;
+  border: 1px solid #3c3d3d;
 }
 
 .result {
